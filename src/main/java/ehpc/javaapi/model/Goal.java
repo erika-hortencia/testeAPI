@@ -1,6 +1,10 @@
 package ehpc.javaapi.model;
 
+import jakarta.persistence.Entity;
+
+@Entity(name = "tb_goal")
 public class Goal extends Event{
+    
     public String deadline;
     public String periodicity;
 
@@ -19,6 +23,5 @@ public class Goal extends Event{
     public void setPeriodicity(String periodicity) {
         this.periodicity = periodicity;
     }
-
     
 }

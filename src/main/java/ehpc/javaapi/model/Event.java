@@ -1,6 +1,15 @@
 package ehpc.javaapi.model;
 
-public class Event {
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+
+@MappedSuperclass
+public abstract class Event {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
     public String name;
     public String type;
 
@@ -18,6 +27,14 @@ public class Event {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 }
