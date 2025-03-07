@@ -20,10 +20,11 @@ classDiagram
 
     class Goal {
         +string deadline
-        +string frequency
+        +string periodicity
     }
 
     class Task {
+        +string date
         +string priority_level
         +bool status
     }
