@@ -1,7 +1,9 @@
 package ehpc.javaapi.model;
 
-public class Task extends Event{
+import jakarta.persistence.Entity;
 
+@Entity(name = "tb_task")
+public class Task extends Event{
     public String priority_level;
     public String date;
     public String status;
