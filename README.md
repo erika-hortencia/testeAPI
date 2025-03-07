@@ -16,8 +16,6 @@ classDiagram
     class Event {
         +string name
         +string type
-        +Goal goal
-        +Task task
     }
 
     class Goal {
@@ -30,7 +28,7 @@ classDiagram
         +bool status
     }
 
-    User "1" --> "1" Event : participates in
-    Event "1" --> "1" Goal : has
-    Event "1" --> "1" Task : has
+    User "1" --> "0..*" Event : participates in
+    Event <|-- Goal : specializes
+    Event <|-- Task : specializes
 ```
