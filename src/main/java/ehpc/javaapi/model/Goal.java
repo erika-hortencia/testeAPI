@@ -1,12 +1,15 @@
 package ehpc.javaapi.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
-@Entity(name = "tb_goal")
+@Entity
+@DiscriminatorValue("GOAL")
 public class Goal extends Event{
     
     public String deadline;
     public String periodicity;
+
 
     public String getDeadline() {
         return deadline;

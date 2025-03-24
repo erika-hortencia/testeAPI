@@ -1,8 +1,10 @@
 package ehpc.javaapi.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
-@Entity(name = "tb_task")
+@Entity
+@DiscriminatorValue("TASK")
 public class Task extends Event{
     public String priority_level;
     public String date;
