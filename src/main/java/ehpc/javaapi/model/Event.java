@@ -27,7 +27,11 @@ public abstract class Event {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
+
+    private int eventNumber; 
+
     public String name;
+
     @ManyToOne
     @JoinColumn(name="user_id")
     @JsonBackReference
@@ -56,6 +60,14 @@ public abstract class Event {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public int getEventNumber() {
+        return eventNumber;
+    }
+
+    public void setEventNumber(int eventNumber) {
+        this.eventNumber = eventNumber;
     }
 
 }

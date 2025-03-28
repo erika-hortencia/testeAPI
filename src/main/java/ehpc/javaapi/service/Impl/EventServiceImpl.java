@@ -33,39 +33,11 @@ public class EventServiceImpl implements EventService{
 
         eventToCreate.setUser(user);
 
+        Class<?> eventClass = eventToCreate.getClass();
+        long count = eventRepository.countByUserIdAndEventType(userID, eventClass);
+        
+        eventToCreate.setEventNumber((int) count + 1);
+
         return  eventRepository.save(eventToCreate);
     }
-
-  /*   private final EventRepository eventRepository;
-
-    private final UserRepository userRepository;
-
-    public EventServiceImpl(EventRepository eventRepository){
-        this.eventRepository = eventRepository;
-    }
-
-    public UserServiceImpl(UserRepository userRepository){
-        this.userRepository = userRepository;
-    }
-
-    @Override
-    public Optional<Event> findByUserId(Long userId) {
-        return eventRepository.findById(userId);
-    }
-
-    @Override
-    public Event cretEvent(Event eventToCreate) {
-        if(eventRepository.existsById(eventToCreate.getId())){
-            throw  new IllegalArgumentException("User ID already exists");
-
-        }
-        return eventRepository.save(eventToCreate);
-    }
-
-    @Override
-    public Event cretEvent(Event eventToCreate, Long userID) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cretEvent'");
-    }
- */
 }
