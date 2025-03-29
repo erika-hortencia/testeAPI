@@ -28,6 +28,12 @@ dependencies {
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 }
 
+tasks.jar{
+	manifest {
+		attributes["Main-Class"] = "ehpc.javaapi.JavaapiApplication"
+	}
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
